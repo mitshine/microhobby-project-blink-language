@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<title>FPGAs</title>
+<link rel="shortcut icon" type="image/png" href="../img/favicon.png"/>
+<style>
+.item1 { grid-area: header; }
+.item2 { grid-area: menu; }
+.item3 { grid-area: main; }
+.item4 { grid-area: right; }
+.item5 { grid-area: footer; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main right right'
+    'menu footer footer footer footer footer';
+  gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+</style>
+<style>
+      .btn {
+        border: none;
+        background-color: inherit;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      .btn:hover {background: white;}
+
+      .success {color: green;}
+      .warning {color: orange;}
+      
+      .myButton1 {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      .myButton2 {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      .myButton3 {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      .myButton4 {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      .myButton5 {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      #myButton {
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 14px 28px;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      
+      #myButton:hover {
+        border: none;
+        background-color: grey;
+        color: white;
+      }
+      
+      /* #myButton:hover {background: grey;} */
+      
+      .glow {
+        background-color: #1c87c9;
+        -webkit-border-radius: 25px;
+        border-radius: 25px;
+        border: none;
+        color: #eeeeee;
+        cursor: pointer;
+        display: inline-block;
+        font-family: sans-serif;
+        font-size: 20px;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+      }
+      @keyframes glowing {
+        0% {
+          background-color: #2ba805;
+          box-shadow: 0 0 5px #2ba805;
+        }
+        50% {
+          background-color: #49e819;
+          box-shadow: 0 0 20px #49e819;
+        }
+        100% {
+          background-color: #2ba805;
+          box-shadow: 0 0 5px #2ba805;
+        }
+      }
+      .glow {
+        animation: glowing 1300ms infinite;
+      }
+      
+      #colorbox31 {
+        height: 46px;
+        width: 46px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      
+      #colorbox32 {
+        height: 46px;
+        width: 46px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      
+      #colorbox33 {
+        height: 46px;
+        width: 46px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      
+      #colorbox34 {
+        height: 46px;
+        width: 46px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      
+      #colorbox35 {
+        height: 46px;
+        width: 46px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+     ul {
+       list-style-type: none;
+       margin: 0;
+       padding: 0;
+     }
+     
+     /*
+     .active, .myButton1:hover {
+       background-color: #666;
+       color: white;
+     }
+     
+     .active, .myButton1:hover {
+        border: none;
+        background-color: orange;
+        color: white;
+        padding: 14px 28px;
+        margin: 3px;
+        font-size: 16px;
+        width: 300px;
+        cursor: pointer;
+        display: inline-block;
+      }
+      */
+      
+      </style>
+      <script>
+          function myFunction1() {
+
+                var btn = document.getElementById("myButton1");
+                var glow = document.getElementById("colorbox31");
+
+                if (btn.value == "Click here to light the LED") {
+                    btn.value = "Success";
+                    btn.innerHTML = "Success";
+                    btn.style.color = "green";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "#90EE90"});
+                    glow.style.backgroundColor = "#51FF0D";
+                    glow.style.boxShadow = "0px 0px 40px 20px #51FF0D";
+                }
+                else {
+                    btn.value = "Click here to light the LED";
+                    btn.innerHTML = "Click here to light the LED";
+                    btn.style.color = "white";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "white"});
+                    glow.style.backgroundColor = "white";
+                    glow.style.boxShadow = "none";
+                }
+
+            }
+            
+            function myFunction2() {
+
+                var btn = document.getElementById("myButton2");
+                var glow = document.getElementById("colorbox32");
+
+                if (btn.value == "Click here to light the LED") {
+                    btn.value = "Success";
+                    btn.innerHTML = "Success";
+                    btn.style.color = "green";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "#90EE90"});
+                    glow.style.backgroundColor = "#51FF0D";
+                    glow.style.boxShadow = "0px 0px 40px 20px #51FF0D";
+                }
+                else {
+                    btn.value = "Click here to light the LED";
+                    btn.innerHTML = "Click here to light the LED";
+                    btn.style.color = "white";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "white"});
+                    glow.style.backgroundColor = "white";
+                    glow.style.boxShadow = "none";
+                }
+
+            }
+            
+            function myFunction3() {
+
+                var btn = document.getElementById("myButton3");
+                var glow = document.getElementById("colorbox33");
+
+                if (btn.value == "Click here to light the LED") {
+                    btn.value = "Success";
+                    btn.innerHTML = "Success";
+                    btn.style.color = "green";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "#90EE90"});
+                    glow.style.backgroundColor = "#51FF0D";
+                    glow.style.boxShadow = "0px 0px 40px 20px #51FF0D";
+                }
+                else {
+                    btn.value = "Click here to light the LED";
+                    btn.innerHTML = "Click here to light the LED";
+                    btn.style.color = "white";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "white"});
+                    glow.style.backgroundColor = "white";
+                    glow.style.boxShadow = "none";
+                }
+
+            }
+            
+            function myFunction4() {
+
+                var btn = document.getElementById("myButton4");
+                var glow = document.getElementById("colorbox34");
+
+                if (btn.value == "Click here to light the LED") {
+                    btn.value = "Success";
+                    btn.innerHTML = "Success";
+                    btn.style.color = "green";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "#90EE90"});
+                    glow.style.backgroundColor = "#51FF0D";
+                    glow.style.boxShadow = "0px 0px 40px 20px #51FF0D";
+                }
+                else {
+                    btn.value = "Click here to light the LED";
+                    btn.innerHTML = "Click here to light the LED";
+                    btn.style.color = "white";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "white"});
+                    glow.style.backgroundColor = "white";
+                    glow.style.boxShadow = "none";
+                }
+
+            }
+            
+            function myFunction5() {
+
+                var btn = document.getElementById("myButton5");
+                var glow = document.getElementById("colorbox35");
+
+                if (btn.value == "Click here to light the LED") {
+                    btn.value = "Success";
+                    btn.innerHTML = "Success";
+                    btn.style.color = "green";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "#90EE90"});
+                    glow.style.backgroundColor = "#51FF0D";
+                    glow.style.boxShadow = "0px 0px 40px 20px #51FF0D";
+                }
+                else {
+                    btn.value = "Click here to light the LED";
+                    btn.innerHTML = "Click here to light the LED";
+                    btn.style.color = "white";
+                    btn.style.backgroundColor = "orange";
+                    // $('.colorbox').css({'color': "white"});
+                    glow.style.backgroundColor = "white";
+                    glow.style.boxShadow = "none";
+                }
+
+            }
+            
+            /*
+            function changeColor(color){
+              console.log(color);
+              $('.colorbox').css({'color': color});
+            }
+            */
+      </script>
+</head>
+<body>
+
+<center>
+<h1>Fabless FPGA/Microntroller</h1>
+
+<p>This grid layout shows the various components exists on FPGA/Microntrollers:</p>
+</center>
+
+<div class="grid-container">
+  <div class="item1">Header<br>
+
+  <label for="myfile">Select a file:</label>
+  <input type="file" id="myfile" name="myfile"><br><br>
+  <!-- <input type="submit"> -->
+  <input type="submit" onclick="myFunction()" id="myButton" value="Click here to run on the below device">
+  <br>
+  </div>
+  <div class="item2">Menu items<br>
+  <ul>
+  <li><a href="./cycloneI/index.html">Cyclone I</a></li>
+  <li><a href="./cycloneII/index.html">Cyclone II</a></li>
+  <li><a href="./cycloneIII/index.html">Cyclone III</a></li>
+  <li><a href="./cycloneIV/index.html">Cyclone IV</a></li>
+  </ul>
+  </div>
+  <div class="item3">
+  <button onclick="myFunction1()" class="myButton1 active" value="Click here to light the LED">Click here to light the LED</button><br><br>
+  <button onclick="myFunction2()" class="myButton2" value="Click here to light the LED">Click here to light the LED</button><br><br>
+  <button onclick="myFunction3()" class="myButton3" value="Click here to light the LED">Click here to light the LED</button><br><br>
+  <button onclick="myFunction4()" class="myButton4 active" value="Click here to light the LED">Click here to light the LED</button><br><br>
+  <button onclick="myFunction5()" class="myButton5" value="Click here to light the LED">Click here to light the LED</button>
+  </div>  
+  <div class="item4">
+  <div class="colorbox1" id="colorbox31"></div><br><br>
+  <div class="colorbox2" id="colorbox32"></div><br><br>
+  <div class="colorbox3" id="colorbox33"></div><br><br>
+  <div class="colorbox4" id="colorbox34"></div><br><br>
+  <div class="colorbox5" id="colorbox35"></div>
+  </div>
+  <div class="item5">Footer</div>
+</div>
+
+</body>
+</html>
